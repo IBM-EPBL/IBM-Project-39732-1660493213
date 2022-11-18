@@ -1,0 +1,20 @@
+ apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   name: job-portal-main
+ spec:
+   replicas: 1
+   selector:
+     matchLabels:
+       app: jobportalapp1
+   template:
+     metadata:
+       labels:
+         app: jobportalapp1
+     spec:
+       containers:
+       - name: job-portal-main
+         image: subasridr/job-portal-main:latest
+         imagePullPolicy: Always
+         ports:
+         - containerPort: 5000
